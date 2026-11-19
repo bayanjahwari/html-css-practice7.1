@@ -1,1 +1,46 @@
 /* TODO: build .gallery with CSS Grid to match the mockup */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f7f7f8;
+  color: #1a1a1a;
+  padding: 2rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 150px;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  background-color: #6d4343;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 150px;
+  }
+  
+  .gallery-item.wide,
+  .gallery-item.tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
